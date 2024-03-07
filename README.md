@@ -1,6 +1,6 @@
 [DEMO LINK](https://ponomarchuklana.github.io/react_todo-list/)
 
-Local Node.js v21.6.2
+Local Node.js v14.21.3
 
 # Getting Started with Create React App
 
