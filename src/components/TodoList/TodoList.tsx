@@ -30,7 +30,7 @@ export const TodoList: FC<Props> = ({ list, toggleChecked }) => {
               <li
                 className={
                   cn('list__item', {
-                    'list__item--completed': completed,
+                    'list__item--completed': el.completed,
                   })}
                 onClick={(): void => toggleChecked(el.id)}
                 key={el.id}
