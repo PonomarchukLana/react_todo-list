@@ -9,8 +9,8 @@ type Props = {
 }
 
 export const TodoList: FC<Props> = ({ list, toggleChecked }) => {
-  const completed = list.filter(({ completed }) => completed).length
-  const uncompleted = list.filter(({ completed }) => !completed).length
+  const completed = list.filter((el) => el.completed).length
+  const uncompleted = list.filter((el) => !el.completed).length
 
   return (
     <div className="list">
@@ -25,29 +25,32 @@ export const TodoList: FC<Props> = ({ list, toggleChecked }) => {
 
       <ul className="list__items">
         {
-          list.map(({ id, completed, value }) =>
-            <li
-              className={cn('list__item', {
-                'list__item--completed': completed
-              })}
-              onClick={(): void => toggleChecked(id)}
-              key={id}
-            >
-              <input
-                type="checkbox"
-                className="list__item-checkbox"
-                checked={completed}
-                onChange={(): void => toggleChecked(id)}
-                id={`${id}`}
-              />
-              <label htmlFor={`${id}`}>
-                <span></span>
-              </label>
-              <p>
-                {value}
-              </p>
-            </li>
-          )
+          list.map((el) => {
+            return (
+              <li
+                className={
+                  cn('list__item', {
+                    'list__item--completed': completed,
+                  })}
+                onClick={(): void => toggleChecked(el.id)}
+                key={el.id}
+              >
+                <input
+                  type="checkbox"
+                  className="list__item-checkbox"
+                  checked={el.completed}
+                  onChange={(): void => toggleChecked(el.id)}
+                  id={`${el.id}`}
+                />
+                <label htmlFor={`${el.id}`}>
+                  <span></span>
+                </label>
+                <p>
+                  {el.value}
+                </p>
+              </li>
+            )
+          })
         }
       </ul>
     </div>

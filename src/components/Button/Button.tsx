@@ -3,7 +3,7 @@ import cn from 'classnames'
 import './Button.scss'
 
 type Props = {
-  type: "submit" | "reset" | "button" | undefined
+  type: 'submit' | 'reset' | 'button' | undefined
   children: string
   classname?: string
   onclick?: () => void

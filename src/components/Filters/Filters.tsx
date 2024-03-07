@@ -17,16 +17,19 @@ export const Filters: FC<Props> = ({ getCurrentFilter }) => {
 
   return (
     <div className="filters">
-      {[Filter.All, Filter.Completed, Filter.Current].map(title =>
-        <Button
-          key={title}
-          type="button"
-          classname={currentFilter === title ? 'is-active' : ''}
-          onclick={(): void => handleOnClick(title)}
-        >
-          {title}
-        </Button>
-      )}
+      {[Filter.All, Filter.Completed, Filter.Current]
+        .map((title) => {
+          return (
+            <Button
+              key={title}
+              type="button"
+              classname={currentFilter === title ? 'is-active' : ''}
+              onclick={(): void => handleOnClick(title)}
+            >
+              {title}
+            </Button>
+          )
+        })}
     </div>
   )
 }
