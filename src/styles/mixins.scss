@@ -1,0 +1,5 @@
+@mixin container {
+  background: $white-color;
+  border-radius: $radius;
+  box-shadow: 0px 0px 5px 0px $secondary-color;
+}

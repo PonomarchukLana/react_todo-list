@@ -1,0 +1,80 @@
+@import '../../styles/base-theme.scss';
+@import '../../styles/mixins.scss';
+
+.list {
+  @include container;
+  padding: 15px 30px;
+  margin: 12px 0;
+
+  &__count {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    background: $main-color;
+    color: $white-color;
+    padding: 5px;
+    border-radius: $radius;
+
+    & p {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $elements-color;
+    }
+
+    & p {
+      color: $primary-color;
+    }
+
+    &--completed {
+      text-decoration: line-through;
+    }
+  }
+
+  &__item-checkbox {
+    display: none;
+
+    &+label>span {
+      display: flex;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $main-color;
+      border-radius: $radius;
+      cursor: pointer;
+    }
+
+    &:checked+label>span {
+      background: $main-color;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        border-right: 3px solid $white-color;
+        border-bottom: 3px solid $white-color;
+        transform: rotate(45deg);
+        transform-origin: 5px 100%;
+        width: 5px;
+        height: 10px;
+      }
+    }
+  }
+}
