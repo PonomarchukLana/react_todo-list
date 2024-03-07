@@ -4,7 +4,8 @@
         "es2021": true
     },
     "extends": [
-        "@wemake-services/typescript/recommended"
+        "@wemake-services/typescript/recommended",
+        "@wemake-services/javascript"
     ],
     "parserOptions": {
       "ecmaVersion": 2022,
@@ -19,5 +20,11 @@
       }
     },
     "rules": {
+      "unicorn/filename-case": ["error", {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+       }]
     }
 }

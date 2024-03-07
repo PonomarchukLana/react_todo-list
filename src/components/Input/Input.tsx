@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import cn from 'classnames'
 import { Todo } from '../../types'
 import { createNewId } from '../../utils/createNewId'
@@ -6,37 +6,37 @@ import { Button } from '../Button/Button'
 import './Input.scss'
 
 type Props = {
-  onSubmit: (item: Todo) => void
+  onSubmit: (todoItem: Todo) => void
   currentIds: number[]
 }
 
 export const Input: FC<Props> = ({ onSubmit, currentIds }) => {
   const [value, setValue] = useState('')
   const [error, setError] = useState(false)
-  
+
   useEffect(() => {
-    if(error) {
+    if (error) {
       setTimeout(() => {
         setError(false)
       }, 2000)
     }
   }, [error])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault()
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
 
     if (value.length <= 2) {
       setError(true)
       return
     }
 
-    const item = {
-      id: createNewId(currentIds),
-      completed: false,
-      value
+    const todoItem = {
+      'id': createNewId(currentIds),
+      'completed': false,
+      value,
     }
 
-    onSubmit(item)
+    onSubmit(todoItem)
     setValue('')
   }
 
@@ -54,7 +54,7 @@ export const Input: FC<Props> = ({ onSubmit, currentIds }) => {
           placeholder="What I need to do?"
           className="form__input"
           value={value}
-          onChange={(e): void => setValue(e.target.value)}
+          onChange={(event): void => setValue(event.target.value)}
         />
 
         <Button

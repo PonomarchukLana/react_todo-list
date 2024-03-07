@@ -9,53 +9,55 @@ type TodoState = {
 }
 
 const initialState: TodoState = {
-  todos: [
+  'todos': [
     {
-      id: 1,
-      completed: false,
-      value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      'id': 1,
+      'completed': false,
+      'value': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     },
     {
-      id: 2,
-      completed: true,
-      value: "Lorem ipsum dolor sit amet.",
-    }
+      'id': 2,
+      'completed': true,
+      'value': 'Lorem ipsum dolor sit amet.',
+    },
   ],
-  filter: Filter.All,
+  'filter': Filter.All,
 }
 
 export const todosSlice = createSlice({
-  name: 'todos',
+  'name': 'todos',
   initialState,
-  reducers: {
-    add: (state, action: PayloadAction<Todo>) => {
+  'reducers': {
+    'add': (state, action: PayloadAction<Todo>) => {
       state.todos.unshift(action.payload)
     },
 
-    toggleCompleted: (state, action: PayloadAction<number>) => {
+    'toggleCompleted': (state, action: PayloadAction<number>) => {
       const index = state.todos.findIndex(({ id }) => id === action.payload)
       state.todos[index].completed = !state.todos[index].completed
     },
 
-    filter: (state, action: PayloadAction<Filter>) => {
+    'filterState': (state, action: PayloadAction<Filter>) => {
       state.filter = action.payload
     },
   },
 })
 
-export const { add, toggleCompleted, filter } = todosSlice.actions
+export const { add, toggleCompleted, filterState } = todosSlice.actions
 
 export const filteredTodos = (state: RootState): Todo[] => {
   const { todos, filter } = state.todos
 
   switch (filter) {
-    case Filter.Completed:
+    case Filter.Completed: {
       return todos.filter((todo: Todo) => todo.completed)
-    case Filter.Current:
+    }
+    case Filter.Current: {
       return todos.filter((todo: Todo) => !todo.completed)
-    case Filter.All:
-    default:
+    }
+    default: {
       return todos
+    }
   }
 }
 
