@@ -1,0 +1,28 @@
+@import '../../styles/base-theme.scss';
+
+.button {
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &--submit {
+    background: $main-color;
+    color: $white-color;
+    border-radius: $radius;
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  &--button {
+    background: $white-color;
+    color: $primary-color;
+    border-radius: $radius;
+    padding: 5px 10px;
+    font-size: 12px;
+    box-shadow: 0px 0px 5px 0px $secondary-color;
+  }
+}

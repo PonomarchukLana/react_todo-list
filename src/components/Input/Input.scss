@@ -1,0 +1,41 @@
+@import '../../styles/base-theme.scss';
+@import '../../styles/mixins.scss';
+
+.form {
+  &__input-wrapp {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    &--error {
+      box-shadow: 0px 0px 5px 0px $red-color;
+    }
+  }
+
+  &__input {
+    border: transparent;
+    padding: 15px 30px;
+    border-radius: $radius;
+    width: 100%;
+    outline: none;
+    color: $primary-color;
+    font-size: 20px;
+  }
+
+  &__submit {
+    border: none;
+    background: $main-color;
+    color: $white-color;
+    border-radius: $radius;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__error {
+    font-size: 12px;
+    color: $red-color;
+    margin: 5px 0;
+  }
+}
