@@ -12,7 +12,6 @@ export const Todos: FC = () => {
   const dispatch = useDispatch()
   const todoList = useSelector(filteredTodos)
 
-
   return (
     <Container>
       <div className="section">
